@@ -38,7 +38,7 @@ export default function Sidebar() {
       <Button
         variant="ghost"
         size="icon"
-        className="md:hidden fixed top-4 left-4 z-50"
+        className="md:hidden fixed top-4 left-4 z-50 text-foreground hover:bg-accent hover:text-accent-foreground"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -46,13 +46,13 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r transform transition-transform duration-200 ease-in-out md:translate-x-0 md:static md:inset-0",
+        "fixed inset-y-0 left-0 z-40 w-64 bg-sidebar border-r border-sidebar-border transform transition-transform duration-200 ease-in-out md:translate-x-0 md:static md:inset-0",
         isOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="p-6 border-b">
-            <Link href="/dashboard" className="text-2xl font-bold text-gray-900">
+          <div className="p-6 border-b border-sidebar-border">
+            <Link href="/dashboard" className="text-2xl font-bold text-sidebar-foreground">
               ExpenseTracker
             </Link>
           </div>
@@ -69,8 +69,8 @@ export default function Sidebar() {
                       className={cn(
                         "flex items-center px-4 py-3 rounded-lg transition-colors",
                         isActive 
-                          ? "bg-blue-100 text-blue-600" 
-                          : "text-gray-600 hover:bg-gray-100"
+                          ? "bg-sidebar-primary text-sidebar-primary-foreground" 
+                          : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                       )}
                       onClick={() => setIsOpen(false)}
                     >
@@ -84,10 +84,10 @@ export default function Sidebar() {
           </nav>
 
           {/* Logout */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t border-sidebar-border">
             <Link 
               href="/"
-              className="flex items-center px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+              className="flex items-center px-4 py-3 rounded-lg text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
             >
               <LogOut className="h-5 w-5 mr-3" />
               Logout
@@ -99,7 +99,7 @@ export default function Sidebar() {
       {/* Overlay for mobile */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-30 md:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}

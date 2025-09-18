@@ -250,7 +250,7 @@ const DrillDownTable: React.FC<DrillDownTableProps> = ({
                   <TableCell className="text-right">
                     <div className={`font-semibold ${
                       transaction.type === 'income' ? 'text-green-600' : 
-                      transaction.type === 'expense' ? 'text-red-600' : 'text-blue-600'
+                      transaction.type === 'expense' ? 'text-red-600' : 'text-primary'
                     }`}>
                       {transaction.type === 'income' ? '+' : transaction.type === 'expense' ? '-' : ''}
                       {formatCurrency(Math.abs(transaction.amount))}

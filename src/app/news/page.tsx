@@ -38,7 +38,7 @@ export default function NewsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <NewsHeader
         activeCategory={filters.category}

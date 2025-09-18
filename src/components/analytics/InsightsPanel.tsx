@@ -42,7 +42,7 @@ const InsightsPanel: React.FC<InsightsPanelProps> = ({ anomalies, insights, load
     switch (severity) {
       case 'high': return 'border-red-200 bg-red-50 text-red-800'
       case 'medium': return 'border-yellow-200 bg-yellow-50 text-yellow-800'
-      case 'low': return 'border-blue-200 bg-blue-50 text-blue-800'
+      case 'low': return 'border-primary/20 bg-primary/10 text-primary'
       default: return 'border-gray-200 bg-gray-50 text-gray-800'
     }
   }
@@ -61,7 +61,7 @@ const InsightsPanel: React.FC<InsightsPanelProps> = ({ anomalies, insights, load
     switch (impact) {
       case 'positive': return 'text-green-600'
       case 'negative': return 'text-red-600'
-      default: return 'text-blue-600'
+      default: return 'text-primary'
     }
   }
 
@@ -169,7 +169,7 @@ const InsightsPanel: React.FC<InsightsPanelProps> = ({ anomalies, insights, load
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-blue-500" />
+            <Lightbulb className="h-5 w-5 text-primary" />
             <span>Smart Insights</span>
             {insights.length > 0 && (
               <Badge variant="secondary">{insights.length}</Badge>
@@ -179,7 +179,7 @@ const InsightsPanel: React.FC<InsightsPanelProps> = ({ anomalies, insights, load
         <CardContent>
           {insights.length === 0 ? (
             <div className="text-center py-6">
-              <Info className="h-12 w-12 text-blue-500 mx-auto mb-3" />
+              <Info className="h-12 w-12 text-primary mx-auto mb-3" />
               <h3 className="text-lg font-medium text-gray-900 mb-1">Stay Tuned</h3>
               <p className="text-gray-600 text-sm">More spending insights coming soon as we analyze your patterns.</p>
             </div>
@@ -209,12 +209,12 @@ const InsightsPanel: React.FC<InsightsPanelProps> = ({ anomalies, insights, load
                   <p className="text-sm text-gray-700 mb-3">{insight.description}</p>
                   
                   {insight.suggestion && (
-                    <div className="bg-blue-50 border border-blue-200 rounded p-3 mb-3">
+                    <div className="bg-primary/10 border border-primary/20 rounded p-3 mb-3">
                       <div className="flex items-start space-x-2">
-                        <Lightbulb className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <Lightbulb className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                         <div>
-                          <div className="text-sm font-medium text-blue-800 mb-1">Recommendation</div>
-                          <div className="text-sm text-blue-700">{insight.suggestion}</div>
+                          <div className="text-sm font-medium text-primary/80 mb-1">Recommendation</div>
+                          <div className="text-sm text-primary/70">{insight.suggestion}</div>
                         </div>
                       </div>
                     </div>

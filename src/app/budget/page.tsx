@@ -125,7 +125,7 @@ export default function BudgetCreationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -258,7 +258,7 @@ export default function BudgetCreationPage() {
                       <div className="text-sm text-gray-600">Total Income</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-lg font-semibold text-blue-600">{formatCurrency(getTotalAllocated())}</div>
+                      <div className="text-lg font-semibold text-primary">{formatCurrency(getTotalAllocated())}</div>
                       <div className="text-sm text-gray-600">Total Allocated</div>
                     </div>
                     <div className="text-center">

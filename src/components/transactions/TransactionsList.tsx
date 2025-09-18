@@ -75,7 +75,7 @@ const TransactionsList: React.FC<TransactionsListProps> = ({
     switch (type) {
       case 'income': return 'text-green-600 bg-green-50 border-green-200';
       case 'expense': return 'text-red-600 bg-red-50 border-red-200';
-      case 'transfer': return 'text-blue-600 bg-blue-50 border-blue-200';
+      case 'transfer': return 'text-primary bg-primary/10 border-primary/20';
       default: return 'text-gray-600 bg-gray-50 border-gray-200';
     }
   };
@@ -140,7 +140,7 @@ const TransactionsList: React.FC<TransactionsListProps> = ({
               <div
                 key={transaction.id}
                 className={`flex items-center justify-between p-4 hover:bg-gray-50 transition-colors ${
-                  isSelected ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''
+                  isSelected ? 'bg-primary/10 border-l-4 border-l-primary' : ''
                 }`}
               >
                 <div className="flex items-center space-x-3 flex-1">
@@ -176,7 +176,7 @@ const TransactionsList: React.FC<TransactionsListProps> = ({
                               </div>
                             )}
                             {transaction.recurring && (
-                              <Repeat className="h-3 w-3 text-blue-500" />
+                              <Repeat className="h-3 w-3 text-primary" />
                             )}
                           </div>
                           
@@ -211,7 +211,7 @@ const TransactionsList: React.FC<TransactionsListProps> = ({
                           <div className="w-24 text-right">
                             <div className={`text-sm font-semibold ${
                               transaction.type === 'income' ? 'text-green-600' : 
-                              transaction.type === 'expense' ? 'text-red-600' : 'text-blue-600'
+                              transaction.type === 'expense' ? 'text-red-600' : 'text-primary'
                             }`}>
                               {transaction.type === 'income' ? '+' : transaction.type === 'expense' ? '-' : ''}
                               {formatCurrency(transaction.amount)}

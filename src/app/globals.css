@@ -1,23 +1,11 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+  body {
+    letter-spacing: var(--tracking-normal);
   }
 }
 
@@ -28,4 +16,170 @@
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Improved light mode styling */
+@layer utilities {
+  .light-gradient {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Chart.js tooltip styling */
+.chartjs-tooltip {
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Improved button hover states */
+button:hover {
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+:root {
+  --background: 98 100% 99%;
+  --foreground: 0 0% 20%;
+  --card: 98 100% 99%;
+  --card-foreground: 0 0% 20%;
+  --popover: 98 100% 99%;
+  --popover-foreground: 0 0% 44%;
+  --primary: 160 84% 72%;
+  --primary-foreground: 166 89% 17%;
+  --secondary: 0 0% 99%;
+  --secondary-foreground: 0 0% 20%;
+  --muted: 0 0% 95%;
+  --muted-foreground: 0 0% 24%;
+  --accent: 0 0% 95%;
+  --accent-foreground: 0 0% 24%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 0 0% 90%;
+  --input: 210 17% 98%;
+  --ring: 160 84% 72%;
+  --chart-1: 160 84% 72%;
+  --chart-2: 260 88% 76%;
+  --chart-3: 293 77% 70%;
+  --chart-4: 70 85% 60%;
+  --chart-5: 162 80% 67%;
+  --radius: 0.5rem;
+  --sidebar: 98 100% 99%;
+  --sidebar-foreground: 0 0% 55%;
+  --sidebar-primary: 160 84% 72%;
+  --sidebar-primary-foreground: 166 89% 17%;
+  --sidebar-accent: 0 0% 95%;
+  --sidebar-accent-foreground: 0 0% 24%;
+  --sidebar-border: 0 0% 90%;
+  --sidebar-ring: 160 84% 72%;
+  --font-sans: Outfit, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: monospace;
+  --tracking-normal: 0.025em;
+}
+
+.dark {
+  --background: 0 0% 18%;
+  --foreground: 255 100% 93%;
+  --card: 0 0% 20%;
+  --card-foreground: 255 100% 93%;
+  --popover: 0 0% 26%;
+  --popover-foreground: 0 0% 73%;
+  --primary: 157 100% 44%;
+  --primary-foreground: 167 100% 92%;
+  --secondary: 0 0% 26%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 24%;
+  --muted-foreground: 0 0% 71%;
+  --accent: 0 0% 31%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 30 100% 31%;
+  --destructive-foreground: 34 100% 94%;
+  --border: 0 0% 28%;
+  --input: 0 0% 26%;
+  --ring: 152 100% 80%;
+  --chart-1: 152 100% 80%;
+  --chart-2: 254 87% 71%;
+  --chart-3: 294 89% 71%;
+  --chart-4: 84 87% 84%;
+  --chart-5: 182 87% 78%;
+  --sidebar: 0 0% 18%;
+  --sidebar-foreground: 0 0% 63%;
+  --sidebar-primary: 157 100% 44%;
+  --sidebar-primary-foreground: 167 100% 92%;
+  --sidebar-accent: 0 0% 31%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 0 0% 28%;
+  --sidebar-ring: 152 100% 80%;
+  --font-sans: Outfit, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: monospace;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+    outline-color: hsl(var(--ring) / 0.5);
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+  }
 }

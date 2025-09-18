@@ -320,7 +320,7 @@ export default function TransactionsPage() {
   const netAmount = totalIncome - totalExpenses;
 
   return (
-    <div className="p-6 pt-16 md:pt-6 min-h-screen bg-gray-50">
+    <div className="p-6 pt-16 md:pt-6 min-h-screen bg-background">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
