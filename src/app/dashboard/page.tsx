@@ -538,7 +538,7 @@ export default function DashboardPage() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden' : 'bg-background'}`}>
+      <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gradient-to-br from-slate-900 via-slate-800 text-white relative overflow-hidden' : 'bg-background'}`}>
         {darkMode && (
           <>
             {/* Background Effects for Dark Mode */}

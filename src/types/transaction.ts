@@ -1,32 +1,34 @@
 // types/transaction.ts
 export interface Transaction {
     id: string;
-    type: 'income' | 'expense' | 'transfer';
+    type: 'Income' | 'Expense' | 'Transfer';
     amount: number;
     description: string;
     category: string;
-    categoryId: string;
+    categoryId?: string;
     date: string;
-    account: string;
-    accountId: string;
+    account?: string;
+    accountId?: string;
     tags: string[];
-    paymentMethod: 'cash' | 'credit_card' | 'debit_card' | 'bank_transfer' | 'check' | 'digital_wallet' | 'direct_deposit' | 'auto_pay' | 'transfer';
+    paymentMethod: string;
     location?: string | null;
     receipt?: string | null;
     recurring: boolean;
-    status: 'completed' | 'pending' | 'cancelled';
+    frequency?: 'Daily' | 'Weekly' | 'Monthly';
+    status: 'Completed' | 'Pending' | 'Cancelled';
     notes?: string;
     subcategory?: string;
     merchantId?: string;
     referenceNumber?: string;
+    receiptUrl?: string;
   }
   
   export interface TransactionFilters {
-    type: 'all' | 'income' | 'expense' | 'transfer';
+    type: 'all' | 'Income' | 'Expense' | 'Transfer';
     category: string;
     account: string;
     dateRange: 'all' | 'today' | 'week' | 'month' | 'year' | 'custom';
-    status: 'all' | 'completed' | 'pending' | 'cancelled';
+    status: 'all' | 'Completed' | 'Pending' | 'Cancelled';
     amountRange: {
       min: number | null;
       max: number | null;
@@ -42,7 +44,7 @@ export interface Transaction {
     name: string;
     icon: string;
     color: string;
-    type: 'income' | 'expense' | 'both';
+    type: 'Income' | 'Expense' | 'both';
     subcategories?: string[];
   }
   
